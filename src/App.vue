@@ -43,6 +43,9 @@
     </div>
     <router-view></router-view>
   </div>
+  <login-dialog v-model:loginDialog="loginDialog"></login-dialog>
+  <signup-dialog v-model:signupDialog="signupDialog"></signup-dialog>
+  <thread-dialog v-model:threadDialog="threadDialog"></thread-dialog>
 </template>
 
 <script>
