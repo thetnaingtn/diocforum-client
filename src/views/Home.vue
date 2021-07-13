@@ -92,6 +92,7 @@ export default {
     NoContent,
   },
   setup() {
+    console.log(getAllThreads());
     let allThreads = computed(() => {
       return getAllThreads()?.map((thread) => ({
         ...thread,
@@ -114,10 +115,12 @@ export default {
   }),
   created() {
     this.loading = true;
-    axios.get(`${this.url}/api/thread`).then(({ data: threads }) => {
-      this.loading = false;
-      setThreads(threads);
-    });
+    axios
+      .get(`${this.url}/api/thread`)
+      .then(({ data: threads }) => {
+        setThreads(threads);
+      })
+      .finally(() => (this.loading = false));
   },
   methods: {
     goToThread(thread) {

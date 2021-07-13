@@ -22,5 +22,5 @@ export function setThreads(threads) {
 }
 
 export function getAllThreads() {
-    return state.threads.value;
+    return state.threads.value || [];
 }
